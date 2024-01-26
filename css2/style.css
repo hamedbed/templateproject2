@@ -5,8 +5,74 @@
          url("../fonts/Vazir/Vazir-FD-WOL.ttf") format("truetype");
 }
 
+body{
+    font-family: "Vazir";
+}
 
 .wh_100{
     width: 100% !important;
     height: 100% !important;
 }
+
+.w-f-max{
+    width: 100%;
+    max-width: 400px; 
+}
+
+.w-f-max250{
+    width: 100%;
+    max-width: 250px; 
+}
+
+.m-r{
+    padding-right: 10px;
+}
+
+.f-s{
+    font-size: 0.8rem;
+}
+
+.w-50{
+    width:50px;
+}
+
+.flex-c-m-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p-r{
+    padding-right: 20px;
+}
+ .p-l{
+    padding-left: 20px;
+ }
+ .p-t-100{
+    padding-top: 100px;
+ }
+
+ .sizefull{
+    width: 100%;
+ }
+
+ .m-t{
+    margin-top: 15px;
+ }
+ .m-b{
+    margin-bottom: 15px;
+ }
+
+ .b-r{
+    border-radius: 20px;
+ }
+
+ .filter{
+    filter: drop-shadow(2px 4px 6px red);
+ }
+
+ .out{
+    outline: 0.200rem solid rgb(124, 248, 221);
+    outline-offset: .40rem;
+ }
