@@ -5,6 +5,15 @@
          url("../fonts/Vazir/Vazir-FD-WOL.ttf") format("truetype");
 }
 
+
+@media (min-width:600px){
+    .top_actions_section{
+        display: flex;
+        align-items: center;
+    }
+}
+
+
 body{
     font-family: "Vazir";
 }
@@ -12,6 +21,10 @@ body{
 .wh_100{
     width: 100% !important;
     height: 100% !important;
+}
+
+.w-f{
+    width: 100%;
 }
 
 .w-f-max{
@@ -47,6 +60,11 @@ body{
 .po-to{
     position: relative;
     top: 7px;
+}
+
+.po-ri{
+    position: relative;
+    right: 13px;
 }
 .p-r{
     padding-right: 20px;
@@ -107,4 +125,9 @@ body{
     border-radius: 20px;
     outline: 0.200rem solid rgb(124, 248, 221);
     outline-offset: .40rem;
+ }
+
+ flex-align{
+    display: flex;
+    align-items: center;
  }
