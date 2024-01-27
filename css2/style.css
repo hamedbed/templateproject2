@@ -54,6 +54,17 @@ body{
 .w-50{
     width:50px;
 }
+.maxw50{
+    max-width: 50px;
+}
+
+.m-b-0{
+    margin-bottom: 0px;
+}
+
+.no-border{
+    border: unset !important;
+}
 
 /* .rtl{
     text    
@@ -80,11 +91,34 @@ body{
  .p-l{
     padding-left: 3px;
  }
+ .p-l-5{
+    padding-left: 5px;
+ }
+ .p-r-5{
+    padding-right: 5px;
+ }
+ .p-l-10{
+    padding-left: 10x;
+ }
+ .p-t-1{
+    padding-top: 1px;
+ }
+ .p-b-3{
+    padding-bottom: 3px;
+ }
  p-lrt-10{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
  }
+
+p-lrbt{
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
 .p-l-30{
     padding-left: 40px;
 }
@@ -115,6 +149,12 @@ body{
  }
  .m-b{
     margin-bottom: 15px;
+ }
+ .m-r-5{
+    margin-right: 5px;
+ }
+ .m-l-5{
+    margin-left: 5px;
  }
 
  .b-r{
@@ -162,5 +202,36 @@ body{
  }
 
  .br{
-    border: 5px blue;
+    border-radius: 10px ;
+ }
+
+ .flex-l{
+    display: flex;
+    justify-content: flex-start;
+ }
+
+ .flex-l-m{
+    display:flex; 
+    align-items: center;
+ }
+
+ .flex-justify{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .polrm{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+ }
+ .b0{
+    bottom: 0px;
+ }
+
+ .b-r-t{
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
  }
