@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./materialize-v1.0.0/materialize/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css2/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="flexboxcss.css">
+    <title> پروژه ساخت قالب </title>
+</head>
+
+<body>
+
+    <!-- sidenav start -->
+
+    <nav class="lime z-depth-5">
+        <div class="nav-wrapper">
+            <a href="#!" class="blue-text hide-on-med-and-up"> مدیریت کاربران </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"><i
+                    class="material-icons">clear_allit</i></a>
+            <ul class="right hide-on-med-and-down">
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="./pics2/4.jpg" class="wh_100">
+                </div>
+                <a href="#user"> <img class="circle" src="./pics2/4.jpg"></a>
+                <a href="#name"> <span class="white-text name ">hamed bedrood</span></a>
+                <a href="#email"> <span class="white-text email">hamed.b99@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="#!"><i class="material-icons">link</i>First Link With Icon</a></li>
+        <li><a href="#!"><i class="material-icons">link</i>Second Link</a></li>
+
+        <li><a class="subheader"> دسته بندی محصولات </a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">home</i> لوازم خانگی </a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">person</i> لوازم شخصی </a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">directions_car</i> لوازم خودرو </a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">laptop_mac</i> لوازم دیجیتال </a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">face</i> مد و پوشاک </a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">directions_bike</i> ورزش و سرگرمی </a></li>
+    </ul>
+    <!-- sidenav end -->
+
+
+
+    <section id="top_actions_section flex-c-m-col">
+        <div class="p-lrt-10">
+            <button class="waves-effect waves-light btn blue darken-2 p-l-30 p-r-30 w-f-max250 br-out m-t">
+                <i class="material-icons po-to">add</i>
+                اضافه کردن کاربر جدید
+            </button>
+        </div>
+        <!-- search start -->
+        <div class="row p-t-25 ">
+            <div class="input-field col s12">
+                <input id="search" type="text" class="validate">
+                <label for="search"> جستجو
+                    <i class="material-icons po-to">search</i>
+                </label>
+            </div>
+    </section>
+
+
+    <script src="./materialize-v1.0.0/materialize/js/materialize.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
