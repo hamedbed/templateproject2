@@ -136,6 +136,22 @@ p-lrbt{
     padding-top: -3px;
  }
 
+ .p-t-10{
+    padding-top: 10px;
+ }
+
+ .p-b-10{
+    padding-bottom: 10%;
+ }
+
+ .p-r-40{
+    padding-right: 40px;
+ }
+
+ .p-l-40{
+    padding-left: 40px;
+ }
+
  .p-all-5{
     padding: 5px 5px 5px 5px;
  }
@@ -150,6 +166,10 @@ p-lrbt{
  .m-b{
     margin-bottom: 15px;
  }
+
+ .m-t{
+    margin-top: 25px;
+ }
  .m-r-5{
     margin-right: 5px;
  }
@@ -159,6 +179,22 @@ p-lrbt{
 
  .b-r{
     border-radius: 20px;
+ }
+
+ .m-l-10{
+    margin-left: 10px;
+ }
+
+ .m-t-20{
+    margin-top: 20px;
+ }
+
+ .m-b-10{
+    margin-bottom: 10px;
+ }
+
+ .m-r-10{
+    margin-right: 10px;
  }
 
  .filter{
@@ -234,4 +270,40 @@ p-lrbt{
  .b-r-t{
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
+ }
+
+ .add_user_modal_back{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0,0, 0, 0.7);
+    z-index:999;
+ }
+
+ .add_user_modal{
+    position: fixed;
+    height: 70vh;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: beige;
+    z-index: 1000;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    bottom: -70vh;
+ }
+
+ .dis-none{
+    display: none;
+ }
+
+ .add_user_modal.show{
+    bottom: 0px;
+    box-shadow: 0 0 10px blue;
+ }
+
+ .trans{
+    transition: all 2s ease;
  }
