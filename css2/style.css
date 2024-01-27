@@ -47,9 +47,17 @@ body{
     font-size: 0.8rem;
 }
 
+.f-bold{
+    font-weight: bold;
+}
+
 .w-50{
     width:50px;
 }
+
+/* .rtl{
+    text    
+} */
 
 .flex-c-m-col{
     display: flex;
@@ -94,6 +102,10 @@ body{
     padding-top: -3px;
  }
 
+ .p-all-5{
+    padding: 5px 5px 5px 5px;
+ }
+
  .sizefull{
     width: 100%;
  }
@@ -130,4 +142,16 @@ body{
  flex-align{
     display: flex;
     align-items: center;
+ }
+
+ .icon-user-list .list-item{
+    transform: rotate(180deg);
+ }
+
+ .icon-user-list.active .list-item{
+    transition: all 200ms ease;
+ }
+
+ .list-item.active{
+    background-color: cadetblue;
  }
