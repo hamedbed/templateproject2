@@ -328,3 +328,9 @@ p-lrbt{
     height: 50px;
     background-color: gray;
  }
+
+ .list_user_section{
+    height: calc(100vh-258px);
+    overflow: auto;
+    
+ }
