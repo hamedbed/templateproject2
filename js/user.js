@@ -21,34 +21,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    setTimeout(function(){
-      console.log("start...");
-      fetch('https://jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
-      .then((json) =>{
-        console.log("end...");
-        console.log(json);
-        let html=""
-        for (const user of json ){
-          html=html+`<tr>
-                      <td>
-                      <td>${user.id}</td>
-                      <td>${user.name}</td>
-                      <td>${user.username} </td>
-                      <td>${user.email} </td>
-                      <td>${user.address.city} </td>
-                      <td> 
-                      <i class="material-icons red-tex hov-pointer"> delete_forever </i>
-                      <i class="material-icons green-text hov-pointer"> edit </i>
-                         </td>
-                        </td>
-                   </tr>`
-        }
+    // setTimeout(function(){
+    //   console.log("start...");
+    //   fetch('https://jsonplaceholder.typicode.com/users')
+    //   .then((response) => response.json())
+    //   .then((json) =>{
+    //     console.log("end...");
+    //     console.log(json);
+    //     let html=""
+    //     for (const user of json ){
+    //       html=html+`<tr>
+    //                   <td>
+    //                   <td>${user.id}</td>
+    //                   <td>${user.name}</td>
+    //                   <td>${user.username} </td>
+    //                   <td>${user.email} </td>
+    //                   <td>${user.address.city} </td>
+    //                   <td> 
+    //                   <i class="material-icons red-tex hov-pointer"> delete_forever </i>
+    //                   <i class="material-icons green-text hov-pointer"> edit </i>
+    //                      </td>
+    //                     </td>
+    //                </tr>`
+    //     }
 
-                document.querySelector('.desktop_table_body').innerHTML=html
-      });
+    //             document.querySelector('.desktop_table_body').innerHTML=html
+    //   });
           
-    },5000);
+    // },5000);
     
 
 

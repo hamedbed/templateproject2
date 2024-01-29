@@ -205,6 +205,15 @@
     </section>
 
  
+    <section id="test-section" class="grey" x-data="maindata()">
+        
+        <button class="btn r0" x-on:click="testFunc()">click</button>
+        <span x-text="message" class="blue"></span>
+    </section>
+
+
+
+
     <div class="add_user_modal_back dis-none">
         <div class="add_user_modal container trans">
             <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
@@ -234,7 +243,8 @@
     </div>
 
 
-
+    <script defer src="./js/alpine.js"></script>
+    <script src="./js/alpinejscontrollers/maincontrollers.js"></script>
     <script src="./materialize-v1.0.0/materialize/js/materialize.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/user.js"></script>

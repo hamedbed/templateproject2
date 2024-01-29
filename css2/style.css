@@ -190,11 +190,16 @@ p-lrbt{
  .b-r{
     border-radius: 20px;
  }
-
+.r0{
+    
+   margin-right: 100px;
+}
  .m-l-10{
     margin-left: 10px;
  }
-
+ .m-r-60{
+    margin-right: 20px;
+ }
  .m-t-20{
     margin-top: 20px;
  }
@@ -316,4 +321,10 @@ p-lrbt{
 
  .trans{
     transition: all 2s ease;
+ }
+
+ .wh{
+    width: 100%;
+    height: 50px;
+    background-color: gray;
  }

@@ -43,4 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('https://jsonplaceholder.typicode.com/posts/users')
   .then((response) => response.json())
   .then((json) => console.log(json));
+
+  
   
