@@ -13,7 +13,7 @@
     <title> پروژه ساخت قالب </title>
 </head>
 
-<body>
+<body x-data="usersdata">
 
     <!-- sidenav start -->
 
@@ -75,7 +75,7 @@
             <div class="col l4 hide-on-med-and-down"></div>
     </section>
 
-    <section class="list_user_section">
+    <section class="list_user_section" x-init="getusers()">
 
 
 
@@ -131,55 +131,23 @@
 
 
                 <tbody class="desktop_table_body">
-                    <tr>
-                        <td>
-                            <td>1</td>
-                            <td>حامد</td>
-                            <td> بدرود </td>
-                            <td> hjfdkjafs@hjgjdgk.com </td>
-                            <td> djsdjsjdjjldfsksd </td>
-                            <td> 
-                                <i class="material-icons red-tex hov-pointer"> delete_forever </i>
-                                <i class="material-icons green-text hov-pointer"> edit </i>
+                    <template x-for="user in users">
+                        <tr>
+                            <td>
+                                <td x-text="user.id"></td>
+                                <td  x-text="user.name"></td>
+                                <td  x-text="user.username"> </td>
+                                <td  x-text="user.email">  </td>
+                                <td  x-text="user.address.city+' -  '+user.address.street"> </td>
+                                <td> 
+                                    <i class="material-icons red-tex hov-pointer"> delete_forever </i>
+                                    <i class="material-icons green-text hov-pointer"> edit </i>
+                                </td>
                             </td>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <td>1</td>
-                            <td>حامد</td>
-                            <td> بدرود </td>
-                            <td> hjfdkjafs@hjgjdgk.com </td>
-                            <td> djsdjsjdjjldfsksd </td>
-                            <td> 
-                                <i class="material-icons red-tex hov-pointer"> delete_forever </i>
-                                <i class="material-icons green-text hov-pointer"> edit </i>
-                            </td>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <td>1</td>
-                            <td>حامد</td>
-                            <td> بدرود </td>
-                            <td> hjfdkjafs@hjgjdgk.com </td>
-                            <td> djsdjsjdjjldfsksd </td>
-                            <td> 
-                                <i class="material-icons red-tex hov-pointer"> delete_forever </i>
-                                <i class="material-icons green-text hov-pointer"> edit </i>
-                            </td>
-                        </td>
-                    </tr>
-
-
+                        </tr>
+                    </template>  
                 </tbody>
             </table>
-            
-
         </div>
 
 
@@ -205,11 +173,11 @@
     </section>
 
  
-    <section id="test-section" class="grey" x-data="maindata()">
+    <!-- <section id="test-section" class="grey" x-data="maindata()">
         
         <button class="btn r0" x-on:click="testFunc()">click</button>
         <span x-text="message" class="blue"></span>
-    </section>
+    </section> -->
 
 
 
@@ -242,9 +210,9 @@
         </div>
     </div>
 
-
+    <script defer src="./js/axios.js"></script>
     <script defer src="./js/alpine.js"></script>
-    <script src="./js/alpinejscontrollers/maincontrollers.js"></script>
+    <script src="./js/alpinejscontrollers/usercontrollers.js"></script>
     <script src="./materialize-v1.0.0/materialize/js/materialize.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/user.js"></script>
