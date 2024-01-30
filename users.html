@@ -59,7 +59,8 @@
     <section id="top_actions_section" class="row container">
         <div class="p-lrt-10  col s12 m4 l3">
             <button id="add_user_button"
-                class="waves-effect waves-light btn blue darken-2 p-l-30 p-r-30 w-f-max250 br-out m-t">
+                class="waves-effect waves-light btn blue darken-2 p-l-30 p-r-30 w-f-max250 br-out m-t"
+                x-on:click="showaddmodal=true">
                 <i class="material-icons po-to">add</i>
                 اضافه کردن
             </button>
@@ -77,28 +78,28 @@
     </section>
 
     <!-- <template x-if="isloading"> -->
-        <div class="center-align">
-            <div class="preloader-wrapper small active">
-                <div class="spinner-layer spinner-green-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
+    <div class="center-align">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
                 </div>
             </div>
         </div>
+    </div>
     <!-- </template> -->
 
 
     <section class="list_user_section" x-init="getusers()">
 
         <ul class="collapsible hide-on-med-and-up">
-            <template x-for="user in users">
+            <template x-for="user in pageusers">
                 <li class="list-item">
                     <div class="collapsible-header">
                         <i class="material-icons blue-text darken-2 icon-user-list">arrow_drop_down_circle</i>
@@ -150,7 +151,7 @@
 
 
                 <tbody class="desktop_table_body">
-                    <template x-for="user in users">
+                    <template x-for="user in pageusers">
                         <tr>
                             <td>
                             <td x-text="user.id"></td>
@@ -184,11 +185,13 @@
             <span class="blue-text darken-2 m-l-5 m-r-5 ">100</span>
         </div>
 
+        <strong x-text="currentpage" class="blue-text"></strong>
+
         <div class="pagination_container">
             <i
-                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br">keyboard_arrow_left</i>
+                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br" x-on:click=" priviouspage()">keyboard_arrow_left</i>
             <i
-                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br">keyboard_arrow_right</i>
+                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br" x-on:click="nextpage()">keyboard_arrow_right</i>
         </div>
 
     </section>
@@ -203,34 +206,39 @@
 
 
 
-    <div class="add_user_modal_back dis-none" x-bind:class="{'dis-none': !showaddmodal}" x-on:click="showaddmodal=false">
-        <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}">
-            <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
-                <h5>
-                    <i class="material-icons po-to m-r-10 m-l-10">person_add</i>
-                    Add User
-                </h5>
-                <form>
-                    <div class="input col s12"></div>
-                    <input id="name" type="text" class="validate" />
-                    <label for="name">name: </label>
+    <!-- <div class="add_user_modal_back dis-none" x-bind:class="{'dis-none': !showaddmodal}"> -->
+        <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition>
+            x-on:click="showaddmodal=false">
+            <!-- <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}"> -->
+            <div class="add_user_modal container trans" x-bind:class="showaddmodal ? 'show' : ''">
+                <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
+                    <h5>
+                        <i class="material-icons po-to m-r-10 m-l-10">person_add</i>
+                        Add User
+                    </h5>
+                    <form>
+                        <div class="input col s12"></div>
+                        <input id="name" type="text" class="validate" />
+                        <label for="name">name: </label>
 
-                    <div class="input col s12"></div>
-                    <input id="username" type="text" class="validate" />
-                    <label for="name">username: </label>
+                        <div class="input col s12"></div>
+                        <input id="username" type="text" class="validate" />
+                        <label for="name">username: </label>
 
-                    <div class="input col s12"></div>
-                    <input id="email" type="text" class="validate" />
-                    <label for="name">email: </label>
+                        <div class="input col s12"></div>
+                        <input id="email" type="text" class="validate" />
+                        <label for="name">email: </label>
 
-                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t"> submit
-                    </button>
+                        <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t"> submit
+                        </button>
 
 
-                </form>
+                    </form>
+                </div>
             </div>
+            <!-- </div> -->
         </div>
-    </div>
+    <!-- </div> -->
 
     <script defer src="./js/axios.js"></script>
     <script defer src="./js/alpine.js"></script>
