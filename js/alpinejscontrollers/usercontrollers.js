@@ -7,8 +7,14 @@ document.addEventListener('alpine:init', () => {
                 this.isloading= true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
                      this.users=res.data
-                     this.isloading= false   
-                 }) 
+                 }).catch(error=>
+                 {
+                    console.log(error.message)
+                 }).finally(()=>
+                 { 
+                    this.isloading=false
+
+                 })
             }
         }
     })
