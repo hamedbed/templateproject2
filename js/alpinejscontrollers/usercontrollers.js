@@ -2,6 +2,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('usersdata',function(){
         return{
             users:[],
+            mainusers:[],
             pageusers:[],
             isloading: false,
             showaddmodal: false,
@@ -12,6 +13,7 @@ document.addEventListener('alpine:init', () => {
                 this.isloading= true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
                      this.users=res.data
+                     this.mainusers=res.data
                      this.pagination()
                  }).catch(error=>
                  {
@@ -42,6 +44,25 @@ document.addEventListener('alpine:init', () => {
                 this.currentpage--
                 if (this.currentpage<1)    this.currentpage=1
                 
+                this.pagination()
+            },
+            handlechangesitemscount(value)
+            {
+                this.currentpage=1
+                if (value>this.itemscount)  this.itemscount=this.users.length
+                if (value<1)    this.itemscount=1
+                // this.pagination()
+            },
+            handlesearch(e)
+            {
+                setTimeout(() => {
+                   this.users=this.mainusers.filter(
+                    user=> user.name.includes(e.value)|| 
+                           user.username.includes(e.value)|| 
+                           user.email.includes(e.value))
+                    
+                }, 100);
+                this.currentpage=1
                 this.pagination()
             }
         }

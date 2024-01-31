@@ -68,7 +68,7 @@
         <!-- search start -->
         <div class="row p-t-25 col s12 m8 l5">
             <div class="input-field">
-                <input id="search" type="text" class="validate">
+                <input id="search" type="text" class="validate" x-on:keydown="handlesearch($el)">
                 <label for="search"> جستجو
                     <i class="material-icons po-to">search</i>
                 </label>
@@ -175,23 +175,23 @@
 
 
         <div class="pagination_container container p-lrbt flex-justify polrm b0 z-depth-4 b-r-t">
-            <div class="pagination_container container flex-l p-l-10 flex-l-m">
-                showing
+            <div class="pagination_container container flex-l p-l-10 flex-l-m "> showing
             </div>
-            <span class="m-l-5 m-r-5 maxw50 ">
-                <input type="number" class="blue-text darken-2 no-border center-align m-b-0" value="10">
+            <span class=" m-l-5 m-r-5 maxw50 " x-init="$watch('itemscount', (value)=> handlechangesitemscount(value))">
+                <input type=" number" class="blue-text darken-2 no-border center-align m-b-0 po-to" x-model="itemscount" x-on:change="pagination()">
+                <!-- <input type=" number" class="blue-text darken-2 no-border center-align m-b-0 po-to" x-on:change="handlechangesitemscount($el)" :value="itemscount"> -->
             </span>
             of
-            <span class="blue-text darken-2 m-l-5 m-r-5 ">100</span>
+            <span class="blue-text darken-2 m-l-5 m-r-50 " x.text="users.lenght"></span>
         </div>
 
         <strong x-text="currentpage" class="blue-text"></strong>
 
         <div class="pagination_container">
-            <i
-                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br" x-on:click=" priviouspage()">keyboard_arrow_left</i>
-            <i
-                class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br" x-on:click="nextpage()">keyboard_arrow_right</i>
+            <i class="material-icons blue darken-2 m-l-5 m-r-170 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br"
+                x-on:click="priviouspage()">keyboard_arrow_right</i>
+            <i class="material-icons blue darken-2 m-l-5 m-r-5 p-l-5 p-r-5 p-t-1 p-b-3 waves-effect waves-light br"
+                x-on:click="nextpage()">keyboard_arrow_left</i>
         </div>
 
     </section>
@@ -207,37 +207,37 @@
 
 
     <!-- <div class="add_user_modal_back dis-none" x-bind:class="{'dis-none': !showaddmodal}"> -->
-        <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition>
-            x-on:click="showaddmodal=false">
-            <!-- <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}"> -->
-            <div class="add_user_modal container trans" x-bind:class="showaddmodal ? 'show' : ''">
-                <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
-                    <h5>
-                        <i class="material-icons po-to m-r-10 m-l-10">person_add</i>
-                        Add User
-                    </h5>
-                    <form>
-                        <div class="input col s12"></div>
-                        <input id="name" type="text" class="validate" />
-                        <label for="name">name: </label>
+    <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition>
+        x-on:click="showaddmodal=false">
+        <!-- <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}"> -->
+        <div class="add_user_modal container trans" x-bind:class="showaddmodal ? 'show' : ''">
+            <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
+                <h5>
+                    <i class="material-icons po-to m-r-10 m-l-10">person_add</i>
+                    Add User
+                </h5>
+                <form>
+                    <div class="input col s12"></div>
+                    <input id="name" type="text" class="validate" />
+                    <label for="name">name: </label>
 
-                        <div class="input col s12"></div>
-                        <input id="username" type="text" class="validate" />
-                        <label for="name">username: </label>
+                    <div class="input col s12"></div>
+                    <input id="username" type="text" class="validate" />
+                    <label for="name">username: </label>
 
-                        <div class="input col s12"></div>
-                        <input id="email" type="text" class="validate" />
-                        <label for="name">email: </label>
+                    <div class="input col s12"></div>
+                    <input id="email" type="text" class="validate" />
+                    <label for="name">email: </label>
 
-                        <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t"> submit
-                        </button>
+                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t"> submit
+                    </button>
 
 
-                    </form>
-                </div>
+                </form>
             </div>
-            <!-- </div> -->
         </div>
+        <!-- </div> -->
+    </div>
     <!-- </div> -->
 
     <script defer src="./js/axios.js"></script>
