@@ -9,6 +9,13 @@ document.addEventListener('alpine:init', () => {
             pagecount:1,
             itemscount:4,
             currentpage:1,
+            newuserinfo:
+            {
+                name:"",
+                username:"",
+                email:""
+            },
+
             getusers(){ 
                 this.isloading= true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
@@ -61,10 +68,32 @@ document.addEventListener('alpine:init', () => {
                            user.username.includes(e.value)|| 
                            user.email.includes(e.value))
                     
-                }, 100);
+                }, 10);
                 this.currentpage=1
                 this.pagination()
+            },
+            handlesubmitadduserform()
+            {
+                console.log(this.newuserinfo);
+                axios.post("https://jsonplaceholder.typicode.com/users", this.newuserinfo).then((res)=>{
+                    //  this.users=res.data
+                    //  this.mainusers=res.data
+                    //  this.pagination()
+                    if (res.status == 201){
+                       this.mainusers.push(res.data)
+                       this.pagination()
+                       this.showaddmodal=false
+                    }
+                 }).catch(error=>
+                 {
+                    console.log(error.message)
+                 }).finally(()=>
+                 { 
+                    this.isloading=false
+
+                 })
             }
+
         }
     })
 })

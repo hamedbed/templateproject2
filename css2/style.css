@@ -317,7 +317,7 @@ p-lrbt{
  }
 
  .dis-none{
-    display: none;
+    display:none;
  }
 
  .add_user_modal.show{
@@ -326,7 +326,7 @@ p-lrbt{
  }
 
  .trans{
-    transition: all 2s ease;
+    transition: all 1s ease;
  }
 
  .wh{

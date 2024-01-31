@@ -207,9 +207,8 @@
 
 
     <!-- <div class="add_user_modal_back dis-none" x-bind:class="{'dis-none': !showaddmodal}"> -->
-    <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition>
-        x-on:click="showaddmodal=false">
-        <!-- <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}"> -->
+    <!-- <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition  x-on:click="showaddmodal=true"> -->
+        <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}">
         <div class="add_user_modal container trans" x-bind:class="showaddmodal ? 'show' : ''">
             <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
                 <h5>
@@ -217,19 +216,22 @@
                     Add User
                 </h5>
                 <form>
+
                     <div class="input col s12"></div>
-                    <input id="name" type="text" class="validate" />
+                    <input id="name" type="text" class="validate" x-model="newuserinfo.name" />
                     <label for="name">name: </label>
 
+
                     <div class="input col s12"></div>
-                    <input id="username" type="text" class="validate" />
+                    <input id="username" type="text" class="validate"  x-model="newuserinfo.username"/>
                     <label for="name">username: </label>
 
+
                     <div class="input col s12"></div>
-                    <input id="email" type="text" class="validate" />
+                    <input id="email" type="text" class="validate" x-model="newuserinfo.email"/>
                     <label for="name">email: </label>
 
-                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t"> submit
+                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t" x-on:click="handlesubmitadduserform()"> submit
                     </button>
 
 
