@@ -124,8 +124,8 @@
 
                         <div class="p-all-5">
                             <span class="f-bold"> فعالیت : </span>
-                            <i class="material-icons po-to red-tex"x-on:click="handledeleteuser(user.id)"> delete_forever </i>
-                            <i class="material-icons green-text po-to"> edit </i>
+                            <i class="material-icons po-to red-tex"x-on:click="handledeleteuser(user)"> delete_forever </i>
+                            <i class="material-icons green-text po-to" x-on:click="handleupdateuser(user)"> edit </i>
                         </div>
                     </div>
                 </li>
@@ -160,8 +160,8 @@
                             <td x-text="user.email"> </td>
                             <td x-text="(user.address?.city || '')+' -  '+(user.address?.street || '')"> </td>
                             <td>
-                                <i class="material-icons red-tex hov-pointer" x-on:click="handledeleteuser(user.id)"> delete_forever </i>
-                                <i class="material-icons green-text hov-pointer"> edit </i>
+                                <i class="material-icons red-tex hov-pointer" x-on:click="handledeleteuser(user)"> delete_forever </i>
+                                <i class="material-icons green-text hov-pointer" x-on:click="handleupdateuser(user)"> edit </i>
                             </td>
                             </td>
                         </tr>
@@ -207,13 +207,13 @@
 
 
     <!-- <div class="add_user_modal_back dis-none" x-bind:class="{'dis-none': !showaddmodal}"> -->
-    <!-- <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition  x-on:click="showaddmodal=true"> -->
-        <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}">
+    <div class="add_user_modal_back dis-none" x-show="showaddmodal" x-transition  x-on:click="showaddmodal=false">
+        <!-- <div class="add_user_modal container trans" x-bind:class="{'show': showaddmodal}"> -->
         <div class="add_user_modal container trans" x-bind:class="showaddmodal ? 'show' : ''">
             <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
                 <h5>
                     <i class="material-icons po-to m-r-10 m-l-10">person_add</i>
-                    Add User
+                    <span x-text="useridtoedit ? 'edit user' : 'add user"></span>
                 </h5>
                 <form>
 
@@ -232,8 +232,9 @@
                     <label for="name">email: </label>
 
                     <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t" 
-                    x-on:click="handlesubmitadduserform()"
-                    x-bind:class="{'pulse'=isloading}" x-bind:disabled="isloading"> submit
+                    x-on:click="useridtoedit ? handleconfirmedituser() : handlesubmitadduserform()"
+                    x-bind:class="{'pulse'=isloading}" x-bind:disabled="isloading"> 
+                    
                     </button>
 
 

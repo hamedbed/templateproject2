@@ -5,10 +5,11 @@ document.addEventListener('alpine:init', () => {
             mainusers:[],
             pageusers:[],
             isloading: false,
-            showaddmodal: false,
+            showaddmodal: true,
             pagecount:1,
             itemscount:4,
             currentpage:1,
+            useridtoedit:null,
             newuserinfo:
             {
                 name:"",
@@ -103,8 +104,8 @@ document.addEventListener('alpine:init', () => {
                     email:""
                 }
             },
-            handledeleteuser(userId){
-                var toastHTML = '<span> ('+userId+')از حذف کاربر مطمئن هستید؟ </span><button class="btn-flat blue-text toast-action" x-on:click="handleconfirmdeleteuser('+userId+')">Delete</button>';
+            handledeleteuser(user){
+                var toastHTML = '<span> ('+user+')از حذف کاربر مطمئن هستید؟ </span><button class="btn-flat blue-text toast-action" x-on:click="handleconfirmdeleteuser('+user.id+')">Delete</button>';
                 M.toast({html: toastHTML});
             },
             handleconfirmdeleteuser(userId)
@@ -123,6 +124,19 @@ document.addEventListener('alpine:init', () => {
                     
                  })
             },
+            handleupdateuser(user){
+                axios.get("https://jsonplaceholder.typicode.com/users"+user.id).then(res=>{
+                    if (res.data==200){
+                        this.newuserinfo={
+                            name: res.data.name,
+                            username: res.data.username,
+                            email: res.data.email,
+                        }
+                        this.useridtoedit=this.data.id
+                    }
+                })    
+                // this.showaddmodal= true
+            }
 
         }
     })
