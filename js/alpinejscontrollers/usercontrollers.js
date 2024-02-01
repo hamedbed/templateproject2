@@ -82,6 +82,8 @@ document.addEventListener('alpine:init', () => {
                     if (res.status == 201){
                        this.mainusers.push(res.data)
                        this.pagination()
+                       M.toast({html: 'عملیات ایجاد کاربر جدید با موفقیت انجام شد', classes: 'rounded blue'})
+                       this.handleresetform()
                        this.showaddmodal=false
                     }
                  }).catch(error=>
@@ -92,7 +94,35 @@ document.addEventListener('alpine:init', () => {
                     this.isloading=false
 
                  })
-            }
+            },
+            handleresetform()
+            {
+                this.newuserinfo={
+                    name:"",
+                    username:"",
+                    email:""
+                }
+            },
+            handledeleteuser(userId){
+                var toastHTML = '<span> ('+userId+')از حذف کاربر مطمئن هستید؟ </span><button class="btn-flat blue-text toast-action" x-on:click="handleconfirmdeleteuser('+userId+')">Delete</button>';
+                M.toast({html: toastHTML});
+            },
+            handleconfirmdeleteuser(userId)
+            {
+                this.isloading=true
+                axios.delete("https://jsonplaceholder.typicode.com/users"+userId).then((res)=>{                    
+                    if (res.status == 200){
+                            this.mainusers=this.mainusers.filter(user=>user.id!=userId)
+                            this.users=this.users.filter(user=>user.id!=userId)
+                            this.pagination()
+                            M.toast({html: 'کاربر با موفقیت حذف شد' , classes:"blue"})
+                    }
+                 }).finally(()=>
+                 { 
+                    this.isloading=false
+                    
+                 })
+            },
 
         }
     })

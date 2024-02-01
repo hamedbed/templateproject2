@@ -119,12 +119,12 @@
 
                         <div class="p-all-5">
                             <span class="f-bold"> </span>
-                            <span x-text="user.address.city+' - '+user.address.street"></span>
+                            <span x-text="(user.address?.city || '')+' - '+(user.address?.street || '')"></span>
                         </div>
 
                         <div class="p-all-5">
                             <span class="f-bold"> فعالیت : </span>
-                            <i class="material-icons po-to red-tex"> delete_forever </i>
+                            <i class="material-icons po-to red-tex"x-on:click="handledeleteuser(user.id)"> delete_forever </i>
                             <i class="material-icons green-text po-to"> edit </i>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
 
 
         <div class="hide-on-med-and-down show-on-medium-and-up container br f-s">
-            <table style="direction: rtl;" class="striped highlight centered">
+            <table style="direction: rtl" class="striped highlight centered">
                 <thead>
                     <tr>
                         <th>
@@ -158,9 +158,9 @@
                             <td x-text="user.name"></td>
                             <td x-text="user.username"> </td>
                             <td x-text="user.email"> </td>
-                            <td x-text="user.address.city+' -  '+user.address.street"> </td>
+                            <td x-text="(user.address?.city || '')+' -  '+(user.address?.street || '')"> </td>
                             <td>
-                                <i class="material-icons red-tex hov-pointer"> delete_forever </i>
+                                <i class="material-icons red-tex hov-pointer" x-on:click="handledeleteuser(user.id)"> delete_forever </i>
                                 <i class="material-icons green-text hov-pointer"> edit </i>
                             </td>
                             </td>
@@ -231,7 +231,9 @@
                     <input id="email" type="text" class="validate" x-model="newuserinfo.email"/>
                     <label for="name">email: </label>
 
-                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t" x-on:click="handlesubmitadduserform()"> submit
+                    <button type="button" class="waves-effect waves-light blue darken-1 w-f-max250 b-r m-t" 
+                    x-on:click="handlesubmitadduserform()"
+                    x-bind:class="{'pulse'=isloading}" x-bind:disabled="isloading"> submit
                     </button>
 
 
